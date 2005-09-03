@@ -2,15 +2,15 @@ package WWW::Shorten::KUSO;
 use strict;
 use warnings;
 use Carp;
-our $VERSION = '0.1';
+our $VERSION = '0.2';
 use base qw( WWW::Shorten::generic Exporter );
 our @EXPORT = qw( makeashorterlink makealongerlink );
 
 use LWP::Simple;
 
 sub makeashorterlink {
-    my $url=shift;
-    local $_=get 'http://www.kuso.cc/odbc.php?url='.$url;
+    my ($url,$rq)=@_;
+    local $_=get 'http://www.kuso.cc/odbc.php?url='.$url.'&rq='.$rq;
     return $1 if(/value="([^"]+)".+/s);
 }
 
@@ -36,8 +36,10 @@ __END__
 
 =head1 DESCRIPTION
 
+  # Before using this API module, you should ask for a "Request Code" from http://www.kuso.cc/feedback/
+  # to access KUSO.CC Shorten URL System.
   use WWW::Shorten 'KUSO';
-  my $short_url = makeashorterlink($longurl);
+  my $short_url = makeashorterlink($longurl,$request_code);
 
 =head1 COPYRIGHT
 
