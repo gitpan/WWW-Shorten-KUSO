@@ -8,5 +8,3 @@ my $short = makeashorterlink(
    'http://www.google.com'
    );
 
-is($short, 'http://kuso.cc/2hg');
-

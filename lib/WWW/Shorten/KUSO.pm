@@ -2,7 +2,7 @@ package WWW::Shorten::KUSO;
 use strict;
 use warnings;
 use Carp;
-our $VERSION = '0.2';
+our $VERSION = '0.3';
 use base qw( WWW::Shorten::generic Exporter );
 our @EXPORT = qw( makeashorterlink makealongerlink );
 
@@ -32,7 +32,7 @@ __END__
 
 =head1 NAME
 
-  WWW::Shorten::KUSO - Shorten URL using KUSO.CC
+  WWW::Shorten::KUSO - Shorten URL using http://KUSO.CC/
 
 =head1 DESCRIPTION
 
